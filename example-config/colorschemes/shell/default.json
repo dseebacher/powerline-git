@@ -1,0 +1,18 @@
+{
+	"name": "dseebacher",
+	"groups": {
+		"user":                       { "fg": "white", "bg": "darkblue", "attrs": [] },
+		"git_base_path":              { "fg": "white", "bg": "lightblue", "attrs": [] },
+		"git_project":                { "fg": "white", "bg": "lightblue", "attrs": ["bold"] },
+		"git_project_path":           { "fg": "white", "bg": "violet", "attrs": [] },
+		"git_status":			            { "fg": "white", "bg": "violet", "attrs": [] },
+		"background:divider":         { "fg": "gray5", "bg": "lightblue", "attrs": [] },
+		"branch":                     { "fg": "white", "bg": "pink", "attrs": [] },
+		"branch_dirty":               { "fg": "brightyellow", "bg": "pink", "attrs": [] },
+		"branch_clean":               { "fg": "white", "bg": "pink", "attrs": [] },
+		"branch:divider":             { "fg": "gray7", "bg": "pink", "attrs": [] },
+		"cwd":                        { "fg": "white", "bg": "lightblue", "attrs": [] },
+		"cwd:current_folder":         "cwd",
+		"cwd:divider":                "cwd"
+	}
+}
