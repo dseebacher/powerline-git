@@ -1,7 +1,7 @@
 from __future__ import (unicode_literals, division, absolute_import, print_function)
 
 import os
-from pygit2 import Repository, discover_repository, GIT_STATUS_WT_MODIFIED, GIT_STATUS_WT_DELETED, GIT_STATUS_WT_RENAMED, GIT_STATUS_WT_NEW
+import pygit2 as git
 from powerline.segments import Segment, with_docstring
 from powerline.theme import requires_segment_info, requires_filesystem_watcher
 
@@ -9,11 +9,11 @@ def get_directory(segment_info):
 	return segment_info['getcwd']()
 
 def get_repo(dir):
-	repo_dir = discover_repository(dir)
+	repo_dir = git.discover_repository(dir)
 	if repo_dir is None:
 		return None
 	try:
-		repo = Repository(repo_dir)
+		repo = git.Repository(repo_dir)
 	except Exception:
 		return None
 	else:
@@ -115,13 +115,24 @@ class StatusSegment(Segment):
 	def get_status(repo):
 		status = set()
 		for filepath, flags in repo.status().items():
-			if flags == GIT_STATUS_WT_MODIFIED or flags == GIT_STATUS_WT_DELETED or flags == GIT_STATUS_WT_RENAMED:
+			if (
+				flags == git.GIT_STATUS_WT_MODIFIED \
+				or flags == git.GIT_STATUS_WT_DELETED \
+				or flags == git.GIT_STATUS_WT_RENAMED
+			):
 				status.add("*")
-			if flags == GIT_STATUS_WT_NEW:
+			if flags == git.GIT_STATUS_WT_NEW:
 				status.add("+")
+			if (
+				flags == git.GIT_STATUS_INDEX_MODIFIED \
+				or flags == git.GIT_STATUS_INDEX_DELETED \
+				or flags == git.GIT_STATUS_INDEX_RENAMED \
+				or flags == git.GIT_STATUS_INDEX_NEW
+			):
+				status.add("⇧")
 		if len(status) == 0:
 			return None
-		return ''.join(status)
+		return ''.join(sorted(status))
 
 	def __call__(self, pl, segment_info, create_watcher, status_colors=False, ignore_statuses=()):
 		name = get_directory(segment_info)
