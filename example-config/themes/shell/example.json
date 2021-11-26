@@ -6,21 +6,21 @@
 				"priority": 10
 			},
 			{
-				"function": "powerline-git.segments.git_base_path",
+				"function": "powerline_git.segments.git_base_path",
 				"priority": 10
 			},
 			{
-				"function": "powerline-git.segments.git_project",
+				"function": "powerline_git.segments.git_project",
 				"priority": 10
 			},
 			{
-				"function": "powerline-git.segments.git_project_path",
+				"function": "powerline_git.segments.git_project_path",
 				"priority": 10
 			}
 		],
 		"right": [
 			{
-				"function": "powerline-git.segments.git_status",
+				"function": "powerline_git.segments.git_status",
 				"priority": 10
 			},
 			{

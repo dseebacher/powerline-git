@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="powerline-git",
-    version="0.1.0",
+    version="0.1.1",
     author="David Seebacher",
     author_email="dseebacher@gmail.com",
     description="Additional git segments for powerline.",

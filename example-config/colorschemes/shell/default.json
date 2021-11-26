@@ -1,5 +1,5 @@
 {
-	"name": "dseebacher",
+	"name": "example",
 	"groups": {
 		"user":                       { "fg": "white", "bg": "darkblue", "attrs": [] },
 		"git_base_path":              { "fg": "white", "bg": "lightblue", "attrs": [] },
